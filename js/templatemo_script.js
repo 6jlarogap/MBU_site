@@ -72,30 +72,3 @@ function scrollTo(selectors)
     $('html,body').animate({ scrollTop: selector_top }, 'slow');
 
 }
-/*яндекс карты*/
-ymaps.ready(init);
-
-function init () {
-    var myMap = new ymaps.Map("map", {
-            center: [44.498556, 34.169389],
-            zoom: 17,
-            controls: ['zoomControl', 'typeSelector',  'fullscreenControl', 'routeButtonControl'],
-            behaviors: ['drag']
-        });
-        myPlacemark = new ymaps.Placemark([44.498556, 34.169389], {
-            // Чтобы балун и хинт открывались на метке, необходимо задать ей определенные свойства.
-            balloonContentHeader: "Балун метки",
-            balloonContentBody: "Содержимое <em>балуна</em> метки",
-            balloonContentFooter: "Подвал",
-            hintContent: "Хинт метки"
-        });
-
-            // Открываем балун на карте (без привязки к геообъекту).
-    myMap.balloon.open([44.498556, 34.169389], "Ялтинская похоронная компания", {
-        // Опция: не показываем кнопку закрытия.
-        closeButton: true
-    });
-
-    myMap.geoObjects.add(myPlacemark);
-
-}
